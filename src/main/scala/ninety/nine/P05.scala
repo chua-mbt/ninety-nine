@@ -10,7 +10,7 @@ object P05 extends Problem[Any] {
 
   def recursiveSolution(input: Any*): Any = {
     val list = input(0).asInstanceOf[List[Any]]
-    recursiveReverse(Nil, list)
+    recursiveReverse(list)
   }
 
   def idiomaticSolution(input: Any*): Any = {
@@ -19,8 +19,8 @@ object P05 extends Problem[Any] {
   }
 
   @tailrec
-  def recursiveReverse(accumulator: List[Any], list: List[Any]): Any = list match {
+  def recursiveReverse(list: List[Any], accumulator: List[Any] = Nil): Any = list match {
     case Nil => accumulator
-    case head::tail => recursiveReverse(head::accumulator, tail)
+    case head::tail => recursiveReverse(tail, head::accumulator)
   }
 }

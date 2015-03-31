@@ -10,7 +10,7 @@ object P06 extends Problem[Any] {
 
   def recursiveSolution(input: Any*): Any = {
     val list = input(0).asInstanceOf[List[Any]]
-    P05.recursiveReverse(Nil, list) == list
+    P05.recursiveReverse(list) == list
   }
 
   def idiomaticSolution(input: Any*): Any = {

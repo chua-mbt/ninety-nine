@@ -10,7 +10,7 @@ object P04 extends Problem[Any] {
 
   def recursiveSolution(input: Any*): Any = {
     val list = input(0).asInstanceOf[List[Any]]
-    recursiveLength(0, list)
+    recursiveLength(list)
   }
 
   def idiomaticSolution(input: Any*): Any = {
@@ -19,8 +19,8 @@ object P04 extends Problem[Any] {
   }
 
   @tailrec
-  def recursiveLength(accumulator: Int, list: List[Any]): Any = list match {
+  def recursiveLength(list: List[Any], accumulator: Int = 0): Any = list match {
     case Nil => accumulator
-    case _::tail => recursiveLength(accumulator+1, tail)
+    case _::tail => recursiveLength(tail, accumulator+1)
   }
 }

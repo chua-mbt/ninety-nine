@@ -11,7 +11,7 @@ object P03 extends Problem[Any] {
   def recursiveSolution(input: Any*): Any = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Any]]
-    recursiveNth(0, n, list)
+    recursiveNth(n, list)
   }
 
   def idiomaticSolution(input: Any*): Any = {
@@ -21,9 +21,9 @@ object P03 extends Problem[Any] {
   }
 
   @tailrec
-  def recursiveNth(idx: Int, n: Int, list: List[Any]): Any = list match {
+  def recursiveNth(n: Int, list: List[Any], idx: Int = 0): Any = list match {
     case Nil => throw new java.util.NoSuchElementException()
     case item::_ if (idx == n) => item
-    case _::tail => recursiveNth(idx+1, n, tail)
+    case _::tail => recursiveNth(n, tail, idx+1)
   }
 }
