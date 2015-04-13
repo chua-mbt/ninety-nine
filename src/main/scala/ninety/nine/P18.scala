@@ -1,7 +1,5 @@
 package ninety.nine
 
-import scala.collection.IterableLike
-
 object P18 extends Problem[List[Any]] {
   val NAME = "P18"
   val DESCRIPTION = "extract a slice from a list"
