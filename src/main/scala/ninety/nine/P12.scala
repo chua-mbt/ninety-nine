@@ -29,7 +29,7 @@ object P12 extends Problem[List[Any]] {
     case (count, item)::tail => recursiveFill(count, item)++recursiveDecode(tail)
   }
 
-  def idiomaticDecode(list: List[Any]): List[Any] = list.foldLeft(List[Any]()) {
+  def idiomaticDecode(list: List[Any]): List[Any] = list.foldLeft(List.empty[Any]) {
     (decoded, encoding) => {
       val (len:Int, item) = encoding
       decoded++List.fill(len)(item)

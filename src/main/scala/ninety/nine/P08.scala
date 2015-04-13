@@ -26,7 +26,7 @@ object P08 extends Problem[List[Any]] {
     }
   }
 
-  def idiomaticCompress(list: List[Any]): List[Any] = list.foldRight(List[Any]()) { (item, result) =>
+  def idiomaticCompress(list: List[Any]): List[Any] = list.foldRight(List.empty[Any]) { (item, result) =>
     if(result.isEmpty || result.head != item){ item::result } else { result }
   }
 }
