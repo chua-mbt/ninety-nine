@@ -13,14 +13,11 @@ object P14 extends Problem[List[Any]] {
 
   def idiomaticSolution(input: Any*): List[Any] = {
     val list = input(0).asInstanceOf[List[Any]]
-    idiomaticDuplicate(list)
+    list flatMap { item => item::item::Nil }
   }
 
   def recursiveDuplicate(list: List[Any]): List[Any] = list match {
     case Nil => Nil
     case head::tail => head::head::recursiveDuplicate(tail)
   }
-
-  def idiomaticDuplicate(list: List[Any]): List[Any] =
-    list flatMap { item => item::item::Nil }
 }
