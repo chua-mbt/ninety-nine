@@ -1,19 +1,29 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-/*
-object P12 extends Problem[List[Any]] {
+
+object P12 extends Problem[Any, Any] {
   val NAME = "P12"
   val DESCRIPTION = "decode a run-length encoded list"
-  val TESTCASE = List(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
-  val TESTOUT = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
-  def recursiveSolution(input: Any*): List[Any] = {
+  val solutions = Set(
+    Solution("recursive", recursiveSolution),
+    Solution("idiomatic", idiomaticSolution)
+  )
+
+  val testCases = Set(
+    TestCase[Any, Any](
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e),
+      List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+    )
+  )
+
+  def recursiveSolution(input: Any*): Any = {
     val list = input(0).asInstanceOf[List[(Int, Any)]]
     recursiveDecode(list)
   }
 
-  def idiomaticSolution(input: Any*): List[Any] = {
+  def idiomaticSolution(input: Any*): Any = {
     val list = input(0).asInstanceOf[List[(Int, Any)]]
     idiomaticDecode(list)
   }
@@ -36,4 +46,3 @@ object P12 extends Problem[List[Any]] {
     }
   }
 }
-*/

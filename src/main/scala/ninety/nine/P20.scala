@@ -1,6 +1,6 @@
 package ninety.nine
 /*
-object P20 extends Problem[List[Any]] {
+object P20 extends Problem[Any, Any] {
   val NAME = "P20"
   val DESCRIPTION = "remove the Nth element from a list"
   val TESTCASE = List(1, List('a, 'b, 'c, 'd))

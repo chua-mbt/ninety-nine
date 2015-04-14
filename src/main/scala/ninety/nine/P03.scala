@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P03 extends Problem[Any, Int] {
+object P03 extends Problem[Any, Any] {
   val NAME = "P03"
   val DESCRIPTION = "find the Kth element of a list"
 
@@ -12,16 +12,16 @@ object P03 extends Problem[Any, Int] {
   )
 
   val testCases = Set(
-    TestCase[Any, Int](2, 2, List(1, 1, 2, 3, 5, 8))
+    TestCase[Any, Any](2, 2, List(1, 1, 2, 3, 5, 8))
   )
 
-  def recursiveSolution(input: Any*): Int = {
+  def recursiveSolution(input: Any*): Any = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Int]]
     recursiveNth(n, list)
   }
 
-  def idiomaticSolution(input: Any*): Int = {
+  def idiomaticSolution(input: Any*): Any = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Int]]
     list(n)

@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P02 extends Problem[List[Int], Int] {
+object P02 extends Problem[Any, Any] {
   val NAME = "P02"
   val DESCRIPTION = "find the last but one element of a list"
 
@@ -12,16 +12,16 @@ object P02 extends Problem[List[Int], Int] {
   )
 
   val testCases = Set(
-    TestCase(5, List(1, 1, 2, 3, 5, 8))
+    TestCase[Any, Any](5, List(1, 1, 2, 3, 5, 8))
   )
 
-  def recursiveSolution(input: List[Int]*): Int = {
-    val list = input(0)
+  def recursiveSolution(input: Any*): Any = {
+    val list = input(0).asInstanceOf[List[Int]]
     recursivePenultimate(list)
   }
 
-  def idiomaticSolution(input: List[Int]*): Int = {
-    val list = input(0)
+  def idiomaticSolution(input: Any*): Any = {
+    val list = input(0).asInstanceOf[List[Int]]
     list.dropRight(1).last
   }
 

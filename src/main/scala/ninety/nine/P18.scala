@@ -1,22 +1,32 @@
 package ninety.nine
-/*
-object P18 extends Problem[List[Any]] {
+
+object P18 extends Problem[Any, Any] {
   val NAME = "P18"
   val DESCRIPTION = "extract a slice from a list"
-  val TESTCASE = List(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
-  val TESTOUT = List('d, 'e, 'f, 'g)
 
-  def recursiveSolution(input: Any*): List[Any] = {
+  val solutions = Set(
+    Solution("recursive", recursiveSolution),
+    Solution("idiomatic", idiomaticSolution)
+  )
+
+  val testCases = Set(
+    TestCase[Any, Any](
+      List('d, 'e, 'f, 'g),
+      3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+    )
+  )
+
+  def recursiveSolution(input: Any*): Any = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
-    val list = input(2).asInstanceOf[List[Any]]
+    val list = input(2).asInstanceOf[List[Symbol]]
     recursiveSlice(start, end, list)
   }
 
-  def idiomaticSolution(input: Any*): List[Any] = {
+  def idiomaticSolution(input: Any*): Any = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
-    val list = input(2).asInstanceOf[List[Any]]
+    val list = input(2).asInstanceOf[List[Symbol]]
     list.slice(start, end)
   }
 
@@ -36,4 +46,3 @@ object P18 extends Problem[List[Any]] {
       }
     }
 }
-*/

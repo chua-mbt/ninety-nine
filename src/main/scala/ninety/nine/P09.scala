@@ -1,18 +1,28 @@
 package ninety.nine
-/*
-object P09 extends Problem[List[List[Any]]] {
+
+object P09 extends Problem[Any, Any] {
   val NAME = "P09"
   val DESCRIPTION = "pack consecutive duplicates of list elements into sublists"
-  val TESTCASE = List(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
-  val TESTOUT = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
 
-  def recursiveSolution(input: Any*): List[List[Any]] = {
-    val list = input(0).asInstanceOf[List[Any]]
+  val solutions = Set(
+    Solution("recursive", recursiveSolution),
+    Solution("idiomatic", idiomaticSolution)
+  )
+
+  val testCases = Set(
+    TestCase[Any, Any](
+      List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)),
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+    )
+  )
+
+  def recursiveSolution(input: Any*): Any = {
+    val list = input(0).asInstanceOf[List[Symbol]]
     recursivePack(list)
   }
 
-  def idiomaticSolution(input: Any*): List[List[Any]] = {
-    val list = input(0).asInstanceOf[List[Any]]
+  def idiomaticSolution(input: Any*): Any = {
+    val list = input(0).asInstanceOf[List[Symbol]]
     idiomaticPack(list)
   }
 
@@ -34,4 +44,3 @@ object P09 extends Problem[List[List[Any]]] {
     }
   }
 }
-*/

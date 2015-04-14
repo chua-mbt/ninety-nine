@@ -1,6 +1,6 @@
 package ninety.nine
 /*
-object P21 extends Problem[List[Any]] {
+object P21 extends Problem[Any, Any] {
   val NAME = "P21"
   val DESCRIPTION = "insert an element at a given position into a list"
   val TESTCASE = List('new, 1, List('a, 'b, 'c, 'd))
