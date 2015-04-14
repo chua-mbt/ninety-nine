@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P15 extends Problem[List[Any]] {
   val NAME = "P15"
   val DESCRIPTION = "duplicate the elements of a list a given number of times"
@@ -18,8 +18,9 @@ object P15 extends Problem[List[Any]] {
     list flatMap { item => List.fill(n)(item) }
   }
 
-  def recursiveDuplicateN(n: Int, list: List[Any]): List[Any] = list match {
+  def recursiveDuplicateN[T](n: Int, list: List[T]): List[T] = list match {
     case Nil => Nil
     case head::tail => P12.recursiveFill(n, head)++recursiveDuplicateN(n, tail)
   }
 }
+*/

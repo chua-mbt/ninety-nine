@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P07 extends Problem[List[Any]] {
   val NAME = "P07"
   val DESCRIPTION = "flatten a nested list structure"
@@ -28,3 +28,4 @@ object P07 extends Problem[List[Any]] {
     case item => List(item)
   }
 }
+*/

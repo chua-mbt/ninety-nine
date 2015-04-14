@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P13 extends Problem[List[(Int, Any)]] {
   val NAME = "P13"
   val DESCRIPTION = "directly generate the run-length encoding of a list"
@@ -16,13 +16,13 @@ object P13 extends Problem[List[(Int, Any)]] {
     idiomaticEncode(list)
   }
 
-  def recursiveEncode(list: List[Any]): List[(Int, Any)] = {
+  def recursiveEncode[T](list: List[T]): List[(Int, T)] = {
     // Skipped, already implemented this correctly in P10
-    TESTOUT
+    P10.recursiveEncode(list)
   }
 
   // Alternative idiomatic solution to encoding problem using span
-  def idiomaticEncode(list: List[Any]): List[(Int, Any)] = list match {
+  def idiomaticEncode[T](list: List[T]): List[(Int, T)] = list match {
     case Nil => Nil
     case items => {
       val (packed, rest) = items.span(_ == items.head)
@@ -30,3 +30,4 @@ object P13 extends Problem[List[(Int, Any)]] {
     }
   }
 }
+*/

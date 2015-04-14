@@ -1,7 +1,7 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-
+/*
 object P04 extends Problem[Int] {
   val NAME = "P04"
   val DESCRIPTION = "find the number of elements of a list"
@@ -19,8 +19,9 @@ object P04 extends Problem[Int] {
   }
 
   @tailrec
-  def recursiveLength(list: List[Any], accumulator: Int = 0): Int = list match {
+  def recursiveLength[T](list: List[T], accumulator: Int = 0): Int = list match {
     case Nil => accumulator
     case _::tail => recursiveLength(tail, accumulator+1)
   }
 }
+*/

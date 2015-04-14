@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P09 extends Problem[List[List[Any]]] {
   val NAME = "P09"
   val DESCRIPTION = "pack consecutive duplicates of list elements into sublists"
@@ -16,7 +16,7 @@ object P09 extends Problem[List[List[Any]]] {
     idiomaticPack(list)
   }
 
-  def recursivePack(list: List[Any], last:List[Any] = Nil): List[List[Any]] = (list, last) match {
+  def recursivePack[T](list: List[T], last:List[T] = Nil): List[List[T]] = (list, last) match {
     case (Nil, packed) => packed::Nil
     case (head::tail, Nil) => recursivePack(tail, List(head))
     case (head::tail, packed) => if(packed.contains(head)){
@@ -26,7 +26,7 @@ object P09 extends Problem[List[List[Any]]] {
     }
   }
 
-  def idiomaticPack(list: List[Any]): List[List[Any]] = list match {
+  def idiomaticPack[T](list: List[T]): List[List[T]] = list match {
     case Nil => Nil
     case items => {
       val (packed, rest) = items.span(_ == items.head)
@@ -34,3 +34,4 @@ object P09 extends Problem[List[List[Any]]] {
     }
   }
 }
+*/

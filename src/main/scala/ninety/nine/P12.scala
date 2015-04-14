@@ -1,7 +1,7 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-
+/*
 object P12 extends Problem[List[Any]] {
   val NAME = "P12"
   val DESCRIPTION = "decode a run-length encoded list"
@@ -24,15 +24,16 @@ object P12 extends Problem[List[Any]] {
     case _ => recursiveFill(count-1, item, item::accumulator)
   }
 
-  def recursiveDecode(list: List[(Int, Any)]): List[Any] = list match {
+  def recursiveDecode[T](list: List[(Int, T)]): List[T] = list match {
     case Nil => Nil
     case (count, item)::tail => recursiveFill(count, item)++recursiveDecode(tail)
   }
 
-  def idiomaticDecode(list: List[Any]): List[Any] = list.foldLeft(List.empty[Any]) {
+  def idiomaticDecode[T](list: List[T]): List[T] = list.foldLeft(List.empty[T]) {
     (decoded, encoding) => {
-      val (len:Int, item) = encoding
+      val (len:Int, item:T) = encoding
       decoded++List.fill(len)(item)
     }
   }
 }
+*/

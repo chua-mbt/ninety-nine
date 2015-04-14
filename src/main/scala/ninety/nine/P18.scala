@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P18 extends Problem[List[Any]] {
   val NAME = "P18"
   val DESCRIPTION = "extract a slice from a list"
@@ -20,11 +20,11 @@ object P18 extends Problem[List[Any]] {
     list.slice(start, end)
   }
 
-  def recursiveSlice(
-    start: Int, end: Int, list: List[Any],
+  def recursiveSlice[T](
+    start: Int, end: Int, list: List[T],
     preCtr: Int = 0,
     postCtr: Int = 0
-  ): List[Any] =
+  ): List[T] =
     (preCtr, postCtr, list) match {
       case (_, _, Nil) => Nil
       case (pre, post, head::tail) => if(pre < start){
@@ -36,3 +36,4 @@ object P18 extends Problem[List[Any]] {
       }
     }
 }
+*/

@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P17 extends Problem[(List[Any], List[Any])] {
   val NAME = "P17"
   val DESCRIPTION = "split a list into two parts"
@@ -18,7 +18,7 @@ object P17 extends Problem[(List[Any], List[Any])] {
     list.splitAt(n)
   }
 
-  def recursiveSplit(n: Int, list: List[Any], pre: List[Any] = List.empty[Any]): (List[Any], List[Any]) =
+  def recursiveSplit[T](n: Int, list: List[T], pre: List[T] = List.empty[T]): (List[T], List[T]) =
     list match {
       case Nil => (pre, Nil)
       case head::tail => if(P04.recursiveLength(pre) == n){
@@ -28,3 +28,4 @@ object P17 extends Problem[(List[Any], List[Any])] {
       }
     }
 }
+*/

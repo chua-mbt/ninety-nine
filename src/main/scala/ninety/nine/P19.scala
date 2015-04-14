@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P19 extends Problem[List[Any]] {
   val NAME = "P19"
   val DESCRIPTION = "rotate a list N places to the left"
@@ -20,3 +20,4 @@ object P19 extends Problem[List[Any]] {
     post++pre
   }
 }
+*/

@@ -1,10 +1,9 @@
 package ninety.nine
 
-trait Problem[O] {
+trait Problem[I, O] {
   val NAME:String
   val DESCRIPTION:String
-  val TESTCASE:Any
-  val TESTOUT:O
-  def recursiveSolution(input: Any*): O
-  def idiomaticSolution(input: Any*): O
+
+  val solutions:Set[Solution[I, O]]
+  val testCases:Set[TestCase[I, O]]
 }

@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P10 extends Problem[List[(Int, Any)]] {
   val NAME = "P10"
   val DESCRIPTION = "generate the run-length encoding of a list"
@@ -16,15 +16,16 @@ object P10 extends Problem[List[(Int, Any)]] {
     idiomaticEncode(list)
   }
 
-  def recursiveEncode(list: List[Any]): List[(Int, Any)] = {
-    def encode(list: List[List[Any]]): List[(Int, Any)] = list match {
+  def recursiveEncode[T](list: List[T]): List[(Int, T)] = {
+    def encode(list: List[List[T]]): List[(Int, T)] = list match {
       case Nil => Nil
       case head::tail => (P04.recursiveLength(head), head.head)::encode(tail)
     }
     encode(P09.recursivePack(list))
   }
 
-  def idiomaticEncode(list: List[Any]): List[(Int, Any)] = P09.idiomaticPack(list) map { packed =>
+  def idiomaticEncode[T](list: List[T]): List[(Int, T)] = P09.idiomaticPack(list) map { packed =>
     (packed.length, packed.head)
   }
 }
+*/

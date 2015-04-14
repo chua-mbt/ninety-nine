@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P14 extends Problem[List[Any]] {
   val NAME = "P14"
   val DESCRIPTION = "duplicate the elements of a list"
@@ -16,8 +16,9 @@ object P14 extends Problem[List[Any]] {
     list flatMap { item => item::item::Nil }
   }
 
-  def recursiveDuplicate(list: List[Any]): List[Any] = list match {
+  def recursiveDuplicate[T](list: List[T]): List[T] = list match {
     case Nil => Nil
     case head::tail => head::head::recursiveDuplicate(tail)
   }
 }
+*/

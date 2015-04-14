@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P11 extends Problem[List[Any]] {
   val NAME = "P11"
   val DESCRIPTION = "generate the modified run-length encoding of a list"
@@ -37,3 +37,4 @@ object P11 extends Problem[List[Any]] {
     }
   }
 }
+*/

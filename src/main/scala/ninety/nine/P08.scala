@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P08 extends Problem[List[Any]] {
   val NAME = "P08"
   val DESCRIPTION = "eliminate consecutive duplicates of list elements"
@@ -16,7 +16,7 @@ object P08 extends Problem[List[Any]] {
     idiomaticCompress(list)
   }
 
-  def recursiveCompress(list: List[Any], last:Option[Any] = None): List[Any] = (list, last) match {
+  def recursiveCompress[T](list: List[T], last:Option[T] = None): List[T] = (list, last) match {
     case (Nil, _) => Nil
     case (head::tail, None) => head::recursiveCompress(tail, Some(head))
     case (head::tail, Some(item)) => if(head == item){
@@ -26,7 +26,8 @@ object P08 extends Problem[List[Any]] {
     }
   }
 
-  def idiomaticCompress(list: List[Any]): List[Any] = list.foldRight(List.empty[Any]) { (item, result) =>
+  def idiomaticCompress[T](list: List[T]): List[T] = list.foldRight(List.empty[T]) { (item, result) =>
     if(result.isEmpty || result.head != item){ item::result } else { result }
   }
 }
+*/

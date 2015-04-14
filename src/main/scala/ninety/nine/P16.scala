@@ -1,5 +1,5 @@
 package ninety.nine
-
+/*
 object P16 extends Problem[List[Any]] {
   val NAME = "P16"
   val DESCRIPTION = "drop every Nth element from a list"
@@ -18,8 +18,8 @@ object P16 extends Problem[List[Any]] {
     idiomaticDrop(n, list)
   }
 
-  def recursiveDrop(n: Int, list: List[Any]): List[Any] = {
-    def drop(n: Int, list: List[Any], ctr: Int): List[Any] = (ctr, list) match {
+  def recursiveDrop[T](n: Int, list: List[T]): List[T] = {
+    def drop(n: Int, list: List[T], ctr: Int): List[T] = (ctr, list) match {
       case (_, Nil) => Nil
       case (1, head::tail) => drop(n, tail, n)
       case (_, head::tail) => head::drop(n, tail, ctr-1)
@@ -27,8 +27,9 @@ object P16 extends Problem[List[Any]] {
     drop(n, list, n)
   }
 
-  def idiomaticDrop(n: Int, list: List[Any]): List[Any] = list.splitAt(n-1) match {
+  def idiomaticDrop[T](n: Int, list: List[T]): List[T] = list.splitAt(n-1) match {
     case (pre, Nil) => pre
     case (pre, head::post) => pre++idiomaticDrop(n,post)
   }
 }
+*/

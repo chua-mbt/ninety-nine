@@ -1,7 +1,7 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-
+/*
 object P06 extends Problem[Boolean] {
   val NAME = "P06"
   val DESCRIPTION = "find out whether a list is a palindrome"
@@ -18,3 +18,5 @@ object P06 extends Problem[Boolean] {
     list.reverse == list
   }
 }
+
+*/

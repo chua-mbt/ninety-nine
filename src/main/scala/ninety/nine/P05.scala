@@ -1,7 +1,7 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-
+/*
 object P05 extends Problem[List[Any]] {
   val NAME = "P05"
   val DESCRIPTION = "reverse a list"
@@ -19,8 +19,9 @@ object P05 extends Problem[List[Any]] {
   }
 
   @tailrec
-  def recursiveReverse(list: List[Any], accumulator: List[Any] = Nil): List[Any] = list match {
+  def recursiveReverse[T](list: List[T], accumulator: List[T] = Nil): List[T] = list match {
     case Nil => accumulator
     case head::tail => recursiveReverse(tail, head::accumulator)
   }
 }
+*/
