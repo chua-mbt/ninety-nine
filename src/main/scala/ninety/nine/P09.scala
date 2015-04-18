@@ -29,11 +29,8 @@ object P09 extends Problem[Any, Any] {
   def recursivePack[T](list: List[T], last:List[T] = Nil): List[List[T]] = (list, last) match {
     case (Nil, packed) => packed::Nil
     case (head::tail, Nil) => recursivePack(tail, List(head))
-    case (head::tail, packed) => if(packed.contains(head)){
-      recursivePack(tail, head::packed)
-    } else{
-      packed::recursivePack(tail, List(head))
-    }
+    case (head::tail, packed) if(packed.contains(head)) => recursivePack(tail, head::packed)
+    case (head::tail, packed) => packed::recursivePack(tail, List(head))
   }
 
   def idiomaticPack[T](list: List[T]): List[List[T]] = list match {

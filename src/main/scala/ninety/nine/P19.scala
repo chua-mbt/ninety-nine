@@ -23,14 +23,20 @@ object P19 extends Problem[Any, Any] {
   def recursiveSolution(input: Any*): Any = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Any]]
-    val (pre, post) = P17.recursiveSplit(n, list)
+    val len = P04.recursiveLength(list)
+    val nMod = (n%len)
+    val mod = if(nMod < 0){ nMod + len }else{ nMod }
+    val (pre, post) = P17.recursiveSplit(mod, list)
     post++pre
   }
 
   def idiomaticSolution(input: Any*): Any = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Any]]
-    val (pre, post) = list.splitAt(n)
+    val len = list.length
+    val nMod = (n%len)
+    val mod = if(nMod < 0){ nMod + len }else{ nMod }
+    val (pre, post) = list.splitAt(mod)
     post++pre
   }
 }

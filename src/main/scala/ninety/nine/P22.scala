@@ -1,20 +1,30 @@
 package ninety.nine
 
 import scala.annotation.tailrec
-/*
-object P22 extends Problem[List[Int]] {
+
+object P22 extends Problem[Any, Any] {
   val NAME = "P22"
   val DESCRIPTION = "create a list containing all integers within a given range"
-  val TESTCASE = List(4, 9)
-  val TESTOUT = List(4, 5, 6, 7, 8, 9)
 
-  def recursiveSolution(input: Any*): List[Int] = {
+  val solutions = Set(
+    Solution("recursive", recursiveSolution),
+    Solution("idiomatic", idiomaticSolution)
+  )
+
+  val testCases = Set(
+    TestCase[Any, Any](
+      List(4, 5, 6, 7, 8, 9),
+      4, 9
+    )
+  )
+
+  def recursiveSolution(input: Any*): Any = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
     recursiveRange(start, end)
   }
 
-  def idiomaticSolution(input: Any*): List[Int] = {
+  def idiomaticSolution(input: Any*): Any = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
     List.range(start, end+1)
@@ -33,4 +43,3 @@ object P22 extends Problem[List[Int]] {
     range(start, end, start)
   }
 }
-*/

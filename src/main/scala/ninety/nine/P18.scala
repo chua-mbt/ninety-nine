@@ -37,12 +37,10 @@ object P18 extends Problem[Any, Any] {
   ): List[T] =
     (preCtr, postCtr, list) match {
       case (_, _, Nil) => Nil
-      case (pre, post, head::tail) => if(pre < start){
+      case (pre, post, head::tail) if(pre < start) =>
         recursiveSlice(start, end, tail, pre+1, post)
-      }else if(pre+post < end){
+      case (pre, post, head::tail) if(pre+post < end) =>
         head::recursiveSlice(start, end, tail, pre, post+1)
-      }else{
-        Nil
-      }
+      case (pre, post, head::tail) => Nil
     }
 }

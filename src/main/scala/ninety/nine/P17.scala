@@ -31,10 +31,7 @@ object P17 extends Problem[Any, Any] {
   def recursiveSplit[T](n: Int, list: List[T], pre: List[T] = List.empty[T]): (List[T], List[T]) =
     list match {
       case Nil => (pre, Nil)
-      case head::tail => if(P04.recursiveLength(pre) == n){
-        (pre, head::tail)
-      } else {
-        recursiveSplit(n, tail, pre:+head)
-      }
+      case head::tail if(P04.recursiveLength(pre) == n) => (pre, head::tail)
+      case head::tail => recursiveSplit(n, tail, pre:+head)
     }
 }
