@@ -5,6 +5,5 @@ object P13 extends Problem[Any, Any] {
   val DESCRIPTION = "directly generate the run-length encoding of a list"
 
   val solutions = Set.empty[Solution[Any, Any]]
-  val testCases = Set.empty[TestCase[Any, Any]]
   // Repeat of P10
 }

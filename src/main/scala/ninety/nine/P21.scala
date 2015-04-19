@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P21 extends Problem[Any, Any] {
+object P21 extends Problem[Any, List[Symbol]] {
   val NAME = "P21"
   val DESCRIPTION = "insert an element at a given position into a list"
 
@@ -9,24 +9,17 @@ object P21 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List('a, 'new, 'b, 'c, 'd),
-      'new, 1, List('a, 'b, 'c, 'd)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
+  def recursiveSolution(input: Any*): List[Symbol] = {
     val item = input(0).asInstanceOf[Symbol]
     val n = input(1).asInstanceOf[Int]
-    val list = input(2).asInstanceOf[List[Any]]
+    val list = input(2).asInstanceOf[List[Symbol]]
     recursiveInsert(item, n, list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Any*): List[Symbol] = {
     val item = input(0).asInstanceOf[Symbol]
     val n = input(1).asInstanceOf[Int]
-    val list = input(2).asInstanceOf[List[Any]]
+    val list = input(2).asInstanceOf[List[Symbol]]
     val (pre, post) = list.splitAt(n)
     (pre:+item)++post
   }

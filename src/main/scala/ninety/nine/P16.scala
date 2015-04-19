@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P16 extends Problem[Any, Any] {
+object P16 extends Problem[Any, List[Symbol]] {
   val NAME = "P16"
   val DESCRIPTION = "drop every Nth element from a list"
 
@@ -9,20 +9,13 @@ object P16 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k),
-      3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
+  def recursiveSolution(input: Any*): List[Symbol] = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Symbol]]
     recursiveDrop(n, list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Any*): List[Symbol] = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Symbol]]
     idiomaticDrop(n, list)

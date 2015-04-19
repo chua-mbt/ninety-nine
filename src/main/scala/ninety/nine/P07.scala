@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P07 extends Problem[Any, Any] {
+object P07 extends Problem[List[Any], List[Any]] {
   val NAME = "P07"
   val DESCRIPTION = "flatten a nested list structure"
 
@@ -9,21 +9,14 @@ object P07 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List(1, 1, 2, 3, 5, 8),
-      List(List(1, 1), 2, List(3, List(5, 8)))
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Any]]
+  def recursiveSolution(input: List[Any]*): List[Any] = {
+    val list = input(0)
     recursiveFlatten(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: List[Any]*): List[Any] = {
     // Native flatten does not directly work on Any and is not recursive on List elements
-    val list = input(0).asInstanceOf[List[Any]]
+    val list = input(0)
     idiomaticFlatten(list)
   }
 

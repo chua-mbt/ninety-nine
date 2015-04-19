@@ -3,7 +3,7 @@ package ninety.nine
 import java.util.NoSuchElementException
 import scala.annotation.tailrec
 
-object P20 extends Problem[Any, Any] {
+object P20 extends Problem[Any, (List[Symbol], Symbol)] {
   val NAME = "P20"
   val DESCRIPTION = "remove the Nth element from a list"
 
@@ -12,22 +12,15 @@ object P20 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      (List('a, 'c, 'd), 'b),
-      1, List('a, 'b, 'c, 'd)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
+  def recursiveSolution(input: Any*): (List[Symbol], Symbol) = {
     val n = input(0).asInstanceOf[Int]
-    val list = input(1).asInstanceOf[List[Any]]
+    val list = input(1).asInstanceOf[List[Symbol]]
     recursiveRemove(n, list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Any*): (List[Symbol], Symbol) = {
     val n = input(0).asInstanceOf[Int]
-    val list = input(1).asInstanceOf[List[Any]]
+    val list = input(1).asInstanceOf[List[Symbol]]
     val removed = list(n)
     val remaining = list.zipWithIndex.filterNot(
       pair => pair match { case (_, idx) => idx == n }

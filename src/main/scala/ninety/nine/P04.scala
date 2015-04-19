@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P04 extends Problem[Any, Any] {
+object P04 extends Problem[List[Int], Int] {
   val NAME = "P04"
   val DESCRIPTION = "find the number of elements of a list"
 
@@ -11,17 +11,13 @@ object P04 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](6, List(1, 1, 2, 3, 5, 8))
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Int]]
+  def recursiveSolution(input: List[Int]*): Int = {
+    val list = input(0)
     recursiveLength(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Int]]
+  def idiomaticSolution(input: List[Int]*): Int = {
+    val list = input(0)
     list.length
   }
 

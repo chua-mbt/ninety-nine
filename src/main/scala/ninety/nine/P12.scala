@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P12 extends Problem[Any, Any] {
+object P12 extends Problem[List[(Int, Symbol)], List[Symbol]] {
   val NAME = "P12"
   val DESCRIPTION = "decode a run-length encoded list"
 
@@ -11,20 +11,13 @@ object P12 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e),
-      List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[(Int, Any)]]
+  def recursiveSolution(input: List[(Int, Symbol)]*): List[Symbol] = {
+    val list = input(0)
     recursiveDecode(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[(Int, Any)]]
+  def idiomaticSolution(input: List[(Int, Symbol)]*): List[Symbol] = {
+    val list = input(0)
     idiomaticDecode(list)
   }
 
@@ -39,7 +32,7 @@ object P12 extends Problem[Any, Any] {
     case (count, item)::tail => recursiveFill(count, item)++recursiveDecode(tail)
   }
 
-  def idiomaticDecode[T](list: List[T]): List[T] = list.foldLeft(List.empty[T]) {
+  def idiomaticDecode[T](list: List[(Int, T)]): List[T] = list.foldLeft(List.empty[T]) {
     (decoded, encoding) => {
       val (len:Int, item:T) = encoding
       decoded++List.fill(len)(item)

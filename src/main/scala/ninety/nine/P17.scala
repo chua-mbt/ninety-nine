@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P17 extends Problem[Any, Any] {
+object P17 extends Problem[Any, (List[Symbol], List[Symbol])] {
   val NAME = "P17"
   val DESCRIPTION = "split a list into two parts"
 
@@ -9,20 +9,13 @@ object P17 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      (List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)),
-      3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
+  def recursiveSolution(input: Any*): (List[Symbol], List[Symbol]) = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Symbol]]
     recursiveSplit(n, list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Any*): (List[Symbol], List[Symbol]) = {
     val n = input(0).asInstanceOf[Int]
     val list = input(1).asInstanceOf[List[Symbol]]
     list.splitAt(n)
