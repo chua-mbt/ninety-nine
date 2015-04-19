@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P06 extends Problem[Any, Any] {
+object P06 extends Problem[List[Int], Boolean] {
   val NAME = "P06"
   val DESCRIPTION = "find out whether a list is a palindrome"
 
@@ -11,17 +11,13 @@ object P06 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](true, List(1, 2, 3, 2, 1))
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Int]]
+  def recursiveSolution(input: List[Int]*): Boolean = {
+    val list = input(0)
     P05.recursiveReverse(list) == list
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Int]]
+  def idiomaticSolution(input: List[Int]*): Boolean = {
+    val list = input(0)
     list.reverse == list
   }
 }

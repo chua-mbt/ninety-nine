@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P14 extends Problem[Any, Any] {
+object P14 extends Problem[List[Symbol], List[Symbol]] {
   val NAME = "P14"
   val DESCRIPTION = "duplicate the elements of a list"
 
@@ -9,20 +9,13 @@ object P14 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd),
-      List('a, 'b, 'c, 'c, 'd)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def recursiveSolution(input: List[Symbol]*): List[Symbol] = {
+    val list = input(0)
     recursiveDuplicate(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def idiomaticSolution(input: List[Symbol]*): List[Symbol] = {
+    val list = input(0)
     list flatMap { item => item::item::Nil }
   }
 

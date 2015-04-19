@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P08 extends Problem[Any, Any] {
+object P08 extends Problem[List[Symbol], List[Symbol]] {
   val NAME = "P08"
   val DESCRIPTION = "eliminate consecutive duplicates of list elements"
 
@@ -9,20 +9,13 @@ object P08 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List('a, 'b, 'c, 'a, 'd, 'e),
-      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def recursiveSolution(input: List[Symbol]*): List[Symbol] = {
+    val list = input(0)
     recursiveCompress(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def idiomaticSolution(input: List[Symbol]*): List[Symbol] = {
+    val list = input(0)
     idiomaticCompress(list)
   }
 

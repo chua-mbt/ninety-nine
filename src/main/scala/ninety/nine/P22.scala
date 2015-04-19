@@ -2,7 +2,7 @@ package ninety.nine
 
 import scala.annotation.tailrec
 
-object P22 extends Problem[Any, Any] {
+object P22 extends Problem[Int, List[Int]] {
   val NAME = "P22"
   val DESCRIPTION = "create a list containing all integers within a given range"
 
@@ -11,20 +11,13 @@ object P22 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List(4, 5, 6, 7, 8, 9),
-      4, 9
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
+  def recursiveSolution(input: Int*): List[Int] = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
     recursiveRange(start, end)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Int*): List[Int] = {
     val start = input(0).asInstanceOf[Int]
     val end = input(1).asInstanceOf[Int]
     List.range(start, end+1)

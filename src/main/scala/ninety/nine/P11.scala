@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P11 extends Problem[Any, Any] {
+object P11 extends Problem[List[Symbol], List[Any]] {
   val NAME = "P11"
   val DESCRIPTION = "generate the modified run-length encoding of a list"
 
@@ -9,20 +9,13 @@ object P11 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)),
-      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def recursiveSolution(input: List[Symbol]*): List[Any] = {
+    val list = input(0)
     recursiveEncode(list)
   }
 
-  def idiomaticSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def idiomaticSolution(input: List[Symbol]*): List[Any] = {
+    val list = input(0)
     idiomaticEncode(list)
   }
 

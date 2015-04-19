@@ -1,6 +1,6 @@
 package ninety.nine
 
-object P10 extends Problem[Any, Any] {
+object P10 extends Problem[List[Symbol], List[(Int, Symbol)]] {
   val NAME = "P10"
   val DESCRIPTION = "generate the run-length encoding of a list"
 
@@ -10,24 +10,18 @@ object P10 extends Problem[Any, Any] {
     Solution("idiomaticSpan", idiomaticSpanSoln)
   )
 
-  val testCases = Set(
-    TestCase[Any, Any](
-      List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)),
-      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-    )
-  )
-
-  def recursiveSolution(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def recursiveSolution(input: List[Symbol]*): List[(Int, Symbol)] = {
+    val list = input(0)
     recursiveEncode(list)
   }
 
-  def idiomaticMapSoln(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+  def idiomaticMapSoln(input: List[Symbol]*): List[(Int, Symbol)] = {
+    val list = input(0)
     mapEncode(list)
   }
-  def idiomaticSpanSoln(input: Any*): Any = {
-    val list = input(0).asInstanceOf[List[Symbol]]
+
+  def idiomaticSpanSoln(input: List[Symbol]*): List[(Int, Symbol)] = {
+    val list = input(0)
     spanEncode(list)
   }
 
