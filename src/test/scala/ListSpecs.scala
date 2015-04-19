@@ -216,3 +216,68 @@ class P22Spec extends DeterministicSpec[Int, List[Int]](
     ))
   )
 ){ runTests }
+
+class P23Spec extends ProblemSpec[Any, List[Symbol]](
+  P23,
+  Set(
+    TestCase[Any, List[Symbol]](
+      3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)
+    )(None)
+  )
+){
+  val ITERATION = 10
+  def checkSolution(solution: Solution[Any, List[Symbol]], testCase: TestCase[Any, List[Symbol]]) = {
+    val inputList = testCase.input(1).asInstanceOf[List[Symbol]]
+    val results = (1 to ITERATION).toSet map { _:Int => solution.implementation(testCase.input) }
+    results.size should be > 1
+    results.foreach { result => result.foreach {
+      inputList should contain (_)
+    } }
+  }
+  runTests
+}
+
+class P24Spec extends ProblemSpec[Int, List[Int]](
+  P24,
+  Set(
+    TestCase[Int, List[Int]](6, 49)(None)
+  )
+){
+  val ITERATION = 10
+  def checkSolution(solution: Solution[Int, List[Int]], testCase: TestCase[Int, List[Int]]) = {
+    val n = testCase.input(0)
+    val m = testCase.input(1)
+    val results = (1 to ITERATION).toSet map { _:Int => solution.implementation(testCase.input) }
+    results.size should be > 1
+    results.foreach { result =>
+      result should have length n
+      result.foreach { item =>
+        item should be <= m
+        item should be > 0
+      }
+    }
+  }
+  runTests
+}
+
+class P25Spec extends ProblemSpec[List[Symbol], List[Symbol]](
+  P25,
+  Set(
+    TestCase[List[Symbol], List[Symbol]](List('a, 'b, 'c, 'd, 'e, 'f))(None)
+  )
+){
+  val ITERATION = 10
+  def checkSolution(
+    solution: Solution[List[Symbol], List[Symbol]],
+    testCase: TestCase[List[Symbol], List[Symbol]]
+  ) = {
+    val sortedInput = testCase.input(0).map{ _.toString }.sorted
+    val results = (1 to ITERATION).toSet map { _:Int => solution.implementation(testCase.input) }
+    results.size should be > 1
+    results.foreach { result =>
+      sortedInput should be === result.map{ _.toString }.sorted
+    }
+  }
+  runTests
+}
+

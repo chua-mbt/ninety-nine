@@ -1,8 +1,8 @@
 package ninety.nine
 
 import scala.util.Random
-/*
-object P23 extends Problem[Any, Any] {
+
+object P23 extends Problem[Any, List[Symbol]] {
   val NAME = "P23"
   val DESCRIPTION = "extract a given number of randomly selected elements from a list"
 
@@ -10,20 +10,9 @@ object P23 extends Problem[Any, Any] {
     Solution("idiomatic", idiomaticSolution)
   )
 
-  def idiomaticSolution(input: Any*): Any = {
+  def idiomaticSolution(input: Any*): List[Symbol] = {
     val n = input(0).asInstanceOf[Int]
-    val list = input(1).asInstanceOf[List[Any]]
+    val list = input(1).asInstanceOf[List[Symbol]]
     Random.shuffle(list).take(n)
   }
-
-  // generalized testing
-  // instead of expected output, input and test function
-  // default is === with output
-
-  // test input
-  // - generate x solutions (set)
-  // testable properties
-  // - members of list
-  // - size of set is greater than 1
 }
-*/
