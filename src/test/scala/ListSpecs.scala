@@ -296,3 +296,60 @@ class P26Spec extends DeterministicSpec[Any, List[List[Symbol]]](
     ))
   )
 ){ runTests }
+
+
+class P28ASpec extends DeterministicSpec[List[List[Symbol]], List[List[Symbol]]](
+  P28A,
+  Set(
+    TestCase[List[List[Symbol]], List[List[Symbol]]](
+      List(
+        List('a, 'b, 'c),
+        List('d, 'e),
+        List('f, 'g, 'h),
+        List('d, 'e),
+        List('i, 'j, 'k, 'l),
+        List('m, 'n),
+        List('o)
+      )
+    )(Some(
+      List(
+        List('o),
+        List('d, 'e),
+        List('d, 'e),
+        List('m, 'n),
+        List('a, 'b, 'c),
+        List('f, 'g, 'h),
+        List('i, 'j, 'k, 'l)
+      )
+    ))
+  )
+){ runTests }
+
+class P28BSpec extends DeterministicSpec[List[List[Symbol]], List[List[Symbol]]](
+  P28B,
+  Set(
+    TestCase[List[List[Symbol]], List[List[Symbol]]](
+      List(
+        List('a, 'b, 'c),
+        List('d, 'e),
+        List('f, 'g, 'h),
+        List('d, 'e),
+        List('i, 'j, 'k, 'l),
+        List('m, 'n),
+        List('o)
+      )
+    )(Some(
+      List(
+        List('i, 'j, 'k, 'l),
+        List('o),
+        List('a, 'b, 'c),
+        List('f, 'g, 'h),
+        List('d, 'e),
+        List('d, 'e),
+        List('m, 'n)
+      )
+    ))
+  )
+){ runTests }
+
+

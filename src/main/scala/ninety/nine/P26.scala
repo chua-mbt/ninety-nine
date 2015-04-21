@@ -1,7 +1,5 @@
 package ninety.nine
 
-import scala.util.Random
-
 object P26 extends Problem[Any, List[List[Symbol]]] {
   val NAME = "P26"
   val DESCRIPTION = "generate the combinations of K distinct objects chosen from the N elements of a list"
