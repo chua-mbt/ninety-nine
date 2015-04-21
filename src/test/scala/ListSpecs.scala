@@ -265,3 +265,34 @@ class P25Spec extends RandomizedSpec[List[Symbol], List[Symbol]](
   runTests
 }
 
+class P26Spec extends DeterministicSpec[Any, List[List[Symbol]]](
+  P26,
+  Set(
+    TestCase[Any, List[List[Symbol]]](
+      3, List('a, 'b, 'c, 'd, 'e, 'f)
+    )(Some(
+      List(
+        List('a, 'b, 'c),
+        List('a, 'b, 'd),
+        List('a, 'b, 'e),
+        List('a, 'b, 'f),
+        List('a, 'c, 'd),
+        List('a, 'c, 'e),
+        List('a, 'c, 'f),
+        List('a, 'd, 'e),
+        List('a, 'd, 'f),
+        List('a, 'e, 'f),
+        List('b, 'c, 'd),
+        List('b, 'c, 'e),
+        List('b, 'c, 'f),
+        List('b, 'd, 'e),
+        List('b, 'd, 'f),
+        List('b, 'e, 'f),
+        List('c, 'd, 'e),
+        List('c, 'd, 'f),
+        List('c, 'e, 'f),
+        List('d, 'e, 'f)
+      )
+    ))
+  )
+){ runTests }

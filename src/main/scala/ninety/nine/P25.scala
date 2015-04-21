@@ -14,4 +14,10 @@ object P25 extends Problem[List[Symbol], List[Symbol]] {
     val list = input(0)
     Random.shuffle(list)
   }
+
+  // http://okmij.org/ftp/Haskell/perfect-shuffle.txt
+  def perfectShuffle(input: List[Symbol]*): List[Symbol] = {
+    val list = input(0)
+    list
+  }
 }
