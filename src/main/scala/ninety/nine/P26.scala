@@ -5,7 +5,8 @@ object P26 extends Problem[Any, List[List[Symbol]]] {
   val DESCRIPTION = "generate the combinations of K distinct objects chosen from the N elements of a list"
 
   val solutions = Set(
-    Solution("idiomatic", idiomaticSolution)
+    Solution("idiomatic", idiomaticSolution),
+    Solution("idiomatic2", idiomaticSolution2)
   )
 
   def idiomaticSolution(input: Any*): List[List[Symbol]] = {
@@ -20,5 +21,11 @@ object P26 extends Problem[Any, List[List[Symbol]]] {
     case head::tail => {
       idiomaticCombinations(k-1, tail).map{ head::_ }++idiomaticCombinations(k, tail)
     }
+  }
+
+  def idiomaticSolution2(input: Any*): List[List[Symbol]] = {
+    val k = input(0).asInstanceOf[Int]
+    val list = input(1).asInstanceOf[List[Symbol]]
+    list.combinations(k).toList
   }
 }

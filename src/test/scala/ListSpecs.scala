@@ -297,6 +297,69 @@ class P26Spec extends DeterministicSpec[Any, List[List[Symbol]]](
   )
 ){ runTests }
 
+class P27ASpec extends ProblemSpec[
+  List[String],
+  List[List[List[String]]]
+](
+  P27A,
+  Set(
+    TestCase[List[String], List[List[List[String]]]](
+      List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
+    )(None)
+  )
+){
+  def checkSolution(
+    solution: Solution[List[String], List[List[List[String]]]],
+    testCase: TestCase[List[String], List[List[List[String]]]]
+  ) = {
+    val results = solution.implementation(testCase.input)
+    results should contain allOf (
+      List(
+        List("Aldo", "Beat"),
+        List("Carla", "David", "Evi"),
+        List("Flip", "Gary", "Hugo", "Ida")
+      ),
+      List(
+        List("Aldo", "Beat"),
+        List("Carla", "David", "Flip"),
+        List("Evi", "Gary", "Hugo", "Ida")
+      )
+    )
+    results should have length 1260
+  }
+  runTests
+}
+
+class P27BSpec extends ProblemSpec[Any, List[List[List[String]]]](
+  P27B,
+  Set(
+    TestCase[Any, List[List[List[String]]]](
+      List(2, 2, 5),
+      List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
+    )(None)
+  )
+){
+  def checkSolution(
+    solution: Solution[Any, List[List[List[String]]]],
+    testCase: TestCase[Any, List[List[List[String]]]]
+  ) = {
+    val results = solution.implementation(testCase.input)
+    results should contain allOf (
+      List(
+        List("Aldo", "Beat"),
+        List("Carla", "David"),
+        List("Evi", "Flip", "Gary", "Hugo", "Ida")
+      ),
+      List(
+        List("Aldo", "Beat"),
+        List("Carla", "Evi"),
+        List("David", "Flip", "Gary", "Hugo", "Ida")
+      )
+    )
+    results should have length 756
+  }
+  runTests
+}
 
 class P28ASpec extends DeterministicSpec[List[List[Symbol]], List[List[Symbol]]](
   P28A,
