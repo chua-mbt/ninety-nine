@@ -8,3 +8,17 @@ This project is intended to demonstrate basic proficiency in the following:
 * Scala
 * Activator
 * ScalaTest
+
+Solutions can be tested using the activator test task.
+
+```
+activator test
+```
+
+Solutions for specific problem sets can be tested using test-only and an identifier in the package
+
+```
+activator
+> test-only *list*
+> test-only *arithmetic*
+```
