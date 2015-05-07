@@ -32,10 +32,10 @@ object P31 extends Problem[Int, Boolean] {
     }
 
     @tailrec
-    private def sieveOfEratosthenes(range: Range, marks: ArrayBuffer[Boolean]): ArrayBuffer[Boolean] = {
+    final def sieveOfEratosthenes(range: Range, marks: ArrayBuffer[Boolean]): ArrayBuffer[Boolean] = {
       range.drop(1).foreach { multiple => marks(multiple) = false }
       marks.indexOf(true, range.start+1) match {
-        case -1 => marks
+        case -1 => marks(0) = false; marks(1) = false; marks
         case next => sieveOfEratosthenes(next until range.end by next, marks)
       }
     }

@@ -2,7 +2,7 @@ package ninety.nine.problems
 
 object P34 extends Problem[Int, Int] {
   val NAME = "P34"
-  val DESCRIPTION = "calculate Euler's totient function phi(m)."
+  val DESCRIPTION = "calculate Euler's totient function phi(m)"
 
     val solutions = Set(
     Solution("solution", solution)

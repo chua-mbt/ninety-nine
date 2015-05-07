@@ -38,3 +38,10 @@ class P34Spec extends DeterministicSpec[Int, Int](
     TestCase[Int, Int](10)(Some(4))
   )
 ){ runTests }
+
+class P35Spec extends DeterministicSpec[Int, List[Int]](
+  P35,
+  Set(
+    TestCase[Int, List[Int]](315)(Some(List(3, 3, 5, 7)))
+  )
+){ runTests }
