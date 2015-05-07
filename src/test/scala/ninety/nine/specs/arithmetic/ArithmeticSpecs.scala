@@ -31,3 +31,10 @@ class P33Spec extends DeterministicSpec[Int, Boolean](
     TestCase[Int, Boolean](35, 64)(Some(true))
   )
 ){ runTests }
+
+class P34Spec extends DeterministicSpec[Int, Int](
+  P34,
+  Set(
+    TestCase[Int, Int](10)(Some(4))
+  )
+){ runTests }

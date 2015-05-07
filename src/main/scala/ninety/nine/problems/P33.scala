@@ -11,8 +11,15 @@ object P33 extends Problem[Int, Boolean] {
   def solution(input: Int*): Boolean = {
     val a = input(0)
     val b = input(1)
-    coprime(a, b)
+    import S99Int.int2S99Int
+    a.isCoprimeTo(b)
   }
 
-  def coprime(a: Int, b: Int): Boolean = P32.gcd(a,b) == 1
+  class S99Int(val start: Int) {
+    def isCoprimeTo(b: Int): Boolean = P32.gcd(start,b) == 1
+  }
+
+  object S99Int {
+    implicit def int2S99Int(i: Int): S99Int = new S99Int(i)
+  }
 }
