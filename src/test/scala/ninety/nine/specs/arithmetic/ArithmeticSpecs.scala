@@ -52,3 +52,19 @@ class P36Spec extends DeterministicSpec[Int, List[(Int, Int)]](
     TestCase[Int, List[(Int, Int)]](315)(Some(List((3,2), (5,1), (7,1))))
   )
 ){ runTests }
+
+class P37Spec extends DeterministicSpec[Int, Int](
+  P37,
+  Set(
+    TestCase[Int, Int](10)(Some(4))
+  )
+){ runTests }
+
+class P38Spec extends BenchmarkSpec[Int, Int](
+  Solution("P34", P34.solution),
+  Solution("P37", P37.solution),
+  5, Set(
+    TestCase[Int, Int](10090)(None)
+  ),
+  Seq(Solution("P37", P37.solution), Solution("P34", P34.solution))
+){ runBenchmarks }
